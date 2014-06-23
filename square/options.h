@@ -5,6 +5,11 @@ class Options
 {
 public:
     Options();
+
+public:
+    int nRows;
+    int nCols;
+
 };
 
 #endif // OPTIONS_H

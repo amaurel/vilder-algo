@@ -4,17 +4,25 @@
 #
 #-------------------------------------------------
 
-QT       += core gui
+# QT       += core gui
+QT          += opengl widgets
 
-greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
+# greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
 TARGET = square
 TEMPLATE = app
 
 
 SOURCES += main.cpp\
-        mainwindow.cpp
+    options.cpp \
+    renderer.cpp \
+    window.cpp \
+    glwidget.cpp
 
-HEADERS  += mainwindow.h
+HEADERS  += \
+    options.h \
+    renderer.h \
+    window.h \
+    glwidget.h
 
-FORMS    += mainwindow.ui
+FORMS    +=

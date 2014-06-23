@@ -1,18 +1,26 @@
 #ifndef WINDOW_H
 #define WINDOW_H
 
-#include <QWidget>
+#include "renderer.h"
 
-class Window : public QWidget
+#include <QGLWidget>
+#include <QMainWindow>
+
+//! [0]
+class Window : public QMainWindow
 {
     Q_OBJECT
+
 public:
-    explicit Window(QWidget *parent = 0);
+    Window();
 
-signals:
+protected:
+    virtual void resizeEvent(QResizeEvent *);
 
-public slots:
-
+private:
+    QGLWidget *openGL;
+    Renderer renderer;
 };
+//! [0]
 
 #endif // WINDOW_H
