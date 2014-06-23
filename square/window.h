@@ -3,7 +3,7 @@
 
 #include "renderer.h"
 
-#include <QGLWidget>
+#include <QWidget>
 #include <QMainWindow>
 
 //! [0]
@@ -18,7 +18,7 @@ protected:
     virtual void resizeEvent(QResizeEvent *);
 
 private:
-    QGLWidget *openGL;
+    QWidget *openGL;
     Renderer renderer;
 };
 //! [0]

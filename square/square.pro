@@ -17,12 +17,14 @@ SOURCES += main.cpp\
     options.cpp \
     renderer.cpp \
     window.cpp \
-    glwidget.cpp
+    glwidget.cpp \
+    widget.cpp
 
 HEADERS  += \
     options.h \
     renderer.h \
     window.h \
-    glwidget.h
+    glwidget.h \
+    widget.h
 
 FORMS    +=

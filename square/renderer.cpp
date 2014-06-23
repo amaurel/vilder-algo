@@ -72,7 +72,7 @@ void Renderer::initialize(Options *opt){
 void Renderer::incr(double * rectSizes, int * rectSizesDirection, double * speed, double maxValue){
     int s = nRows*nCols;
     for (int i = 0 ; i < s ; i++){
-        rectSizes[i] = rectSizes[i] +  (rectSizesDirection[i] * recWidthSpeed[i]);
+        rectSizes[i] = rectSizes[i] +  (rectSizesDirection[i] * speed[i]);
         if (rectSizes[i] > maxValue){
             rectSizes[i] = maxValue;
             rectSizesDirection[i] = -1;

@@ -1,6 +1,7 @@
 #include "window.h"
 
 #include "glwidget.h"
+#include "widget.h"
 
 #include "window.h"
 
@@ -18,14 +19,9 @@ Window::Window()
     setWindowTitle(tr("2D Painting on Native and OpenGL Widgets"));
 
 
-    openGL = new GLWidget(&renderer, this);
-    //openGL->resize(400,500);
-    openGL->setSizePolicy(QSizePolicy::Expanding,QSizePolicy::Expanding);
+//    openGL = new GLWidget(&renderer, this);
+    openGL = new Widget(&renderer, this);
 
-    QHBoxLayout *layout = new QHBoxLayout;
-
-    layout->addWidget(openGL);
-    setLayout(layout);
 
     QTimer *timer = new QTimer(this);
 
