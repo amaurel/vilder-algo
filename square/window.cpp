@@ -1,6 +1,6 @@
 #include "window.h"
 
-#include "glwidget.h"
+//#include "glwidget.h"
 #include "widget.h"
 
 #include "window.h"
@@ -16,7 +16,7 @@
 //! [0]
 Window::Window()
 {
-    setWindowTitle(tr("2D Painting on Native and OpenGL Widgets"));
+    setWindowTitle(tr("Vilder square"));
 
 
 //    openGL = new GLWidget(&renderer, this);
@@ -27,6 +27,7 @@ Window::Window()
 
     connect(timer, SIGNAL(timeout()), openGL, SLOT(animate()));
     timer->start(100);
+    QTimer::singleShot(1000, this, SLOT(showFullScreen()));
 }
 
 void Window::resizeEvent(QResizeEvent *evt){
