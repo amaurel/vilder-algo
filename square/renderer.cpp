@@ -8,12 +8,33 @@ Renderer::Renderer()
 {
     background = QBrush(QColor(255, 255, 255));
     color = QBrush(QColor(0, 0, 0));
-    nRows = 20;
-    nCols = 15;
+    nRows = 1;
+    nCols = 1;
 
     patternWidth = 50;
     patternHeight = 50;
 
+
+    initialize();
+
+}
+
+void Renderer::release(){
+    delete[] rectWidths1;
+    delete[] rectWidths2;
+    delete[] recWidthSpeed;
+    delete[] rectHeight1;
+
+    delete[] rectHeight2;
+    delete[] recHeightSpeed;
+    delete[] rectWidthsDirection1;
+    delete[] rectWidthsDirection2;
+
+    delete[] rectHeightDirection1;
+    delete[] rectHeightDirection2;
+}
+
+void Renderer::initialize(){
     int s = nCols *  nRows;
 
     rectWidths1 = new double[s];
@@ -56,7 +77,6 @@ Renderer::Renderer()
             else rectHeightDirection2[i]=-1;
         }
     }
-
 }
 
 int Renderer::indexAt(int col, int row){
@@ -84,9 +104,22 @@ void Renderer::incr(double * rectSizes, int * rectSizesDirection, double * speed
     }
 }
 
-
+void Renderer::onPaint(QPaintEvent *event){
+    const QRect & rec = event->rect();
+    int h = rec.height();
+    int w = rec.width();
+    int new_nRows = 1 + (h / patternHeight);
+    int new_nCols = 1 + (w / patternWidth);
+    if (new_nRows != nRows || new_nCols != nCols){
+        this->release();
+        nRows = new_nRows;
+        nCols = new_nCols;
+        this->initialize();
+    }
+}
 
 void Renderer::paint(QPainter *painter, QPaintEvent *event, int elapsed){
+    onPaint(event);
     painter->fillRect(event->rect(), background);
 //    painter->translate(100, 100);
 //! [1]

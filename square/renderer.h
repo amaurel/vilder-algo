@@ -20,6 +20,9 @@ public:
     void paint(QPainter *painter, QPaintEvent *event, int elapsed);
     int indexAt(int col, int row);
     void incr(double * rectSizes, int * rectSizesDirection, double * speed, double maxValue);
+    void initialize();
+    void release();
+    void onPaint(QPaintEvent *event);
 
 public:
     Options *options;
